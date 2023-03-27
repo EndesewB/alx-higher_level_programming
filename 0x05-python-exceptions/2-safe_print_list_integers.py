@@ -9,4 +9,5 @@ def safe_print_list_integers(my_list=[], x=0):
             break
         except (TypeError, ValueError):
             pass
-        return num_print
+    print()
+    return (num_print)
