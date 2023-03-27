@@ -6,5 +6,4 @@ def safe_print_division(a, b):
         quetion = None
     finally:
         print("Inside result: {}".format(quetion))
-    print()
     return (quetion)
