@@ -2,4 +2,4 @@
 class Square():
     def my_Square(self, a):
         Square = a**2
-        return Square
+    return Square
