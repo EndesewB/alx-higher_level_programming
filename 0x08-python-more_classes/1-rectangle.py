@@ -9,8 +9,8 @@ class Rectangle:
     This is the rectangle class
     """
     def __init__(self, width=0, height=0):
-        self.__height = height
-        self.__width = width
+        self.height = height
+        self.width = width
     '''
     This class sets the rectangle height and width
     Args:
