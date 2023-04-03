@@ -116,4 +116,4 @@ class Rectangle:
              size: the size of the square
         Returns: the new rectangle called square
          """
-        return cls(size, size)
+        return Rectangle(size, size)
