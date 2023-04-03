@@ -24,16 +24,6 @@ class Rectangle:
     Returns: the width and height of the rectangle will be returned
     '''
 
-    @classmethod
-    def square(cls, size=0):
-        """Class method Square which takes the size of the rectangle
-         and returns the area of the square
-         Args:
-             size: the size of the square
-        Returns: the area
-         """
-        return cls(size, size)
-
     @property
     def width(self):
         return self.__width
@@ -117,3 +107,13 @@ class Rectangle:
             return rect_1
         else:
             return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        """Class method Square which takes the size of the rectangle
+         and returns the area of the square
+         Args:
+             size: the size of the square
+        Returns: the new rectangle called square
+         """
+        return cls(size, size)
