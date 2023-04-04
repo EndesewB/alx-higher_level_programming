@@ -1,24 +1,13 @@
->> say_my_name = __import__('3-say_my_name').say_my_name
-
-    This function returns the first and last name preceded by 'My name is...'.
-    Args:
-        first_name (str): First name of the input
-        last_name (str): Last name of the input
-    Returns:
-        str: First and last name preceded by 'My name is...'
-    Raises:
-        TypeError: If first_name or last_name is not a string.
-    >>> say_my_name("John", "Smith")
-    My name is John Smith
-    >>> say_my_name("Walter", "White")
-    My name is Walter White
-    >>> say_my_name("Bob")
-    My name is Bob 
-    >>> say_my_name(12, "White")
-    Traceback (most recent call last):
-        ...
-    TypeError: first_name must be a string
-    >>> say_my_name("smith", 12)
-    Traceback (most recent call last):
-        ...
-    TypeError: last_name must be a string
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name("John", "Smith")
+My name is John Smith
+>>> say_my_name("Bob")
+My name is Bob
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+     ...
+TypeError: first_name must be a string
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+     ...
+TypeError: last_name must be a string
