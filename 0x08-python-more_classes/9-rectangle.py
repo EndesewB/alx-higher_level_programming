@@ -1,119 +1,47 @@
 #!/usr/bin/python3
-"""
-The rectangle class module
-"""
+""" The module that performs the chess game problem"""
+import sys
 
 
-class Rectangle:
-    """
-    This is the rectangle class
-    """
-    print_symbol = '#'  # print symbol of the rectangle
-    number_of_instances = 0  # instance counter
+def is_valid(chessboard, row, colum):
+    """Validating the chessboard with its parameters/chessboard, row and column"""
+    for r, c in chessboard:
+        if c == colum or r - c == row - colum or r + c == row + colum:
+            return False
+    return True
 
-    def __init__(self, width=0, height=0):
-        self.height = height
-        self.width = width
-        Rectangle.number_of_instances += 1
 
-    '''
-    This class sets the rectangle height and width
+def n_queens(n_n, chessboard=[]):
+    """creating an empty chessboard
     Args:
-        width: The first dimension of the rectangle
-        height: the height of the rectangle
-    Returns: the width and height of the rectangle will be returned
-    '''
+        n_n: the dimension of the board
+        chessboard: an empty board
+    Returns: chessboard
+        """
+    if len(chessboard) == n_n:
+        print(chessboard)
+        return
+    for colum in range(n_n):
+        if is_valid(chessboard, len(chessboard), colum):
+            chessboard.append([len(chessboard), colum])
+            n_queens(n_n, chessboard)
+            chessboard.pop()
 
-    @property
-    def width(self):
-        return self.__width
 
-    @width.setter
-    def width(self, value):
-        if not isinstance(value, int):
-            raise TypeError('width must be an integer')
-        elif value < 0:
-            raise ValueError('width must be >= 0')
-        else:
-            self.__width = value
+if len(sys.argv) != 2:
+    """taking the arguments from the user"""
+    print("Usage: nqueens N")
+    sys.exit(1)
 
-    '''
-    rectangle width setter
-    '''
+try:
+    """Exceptions"""
+    nxn = int(sys.argv[1])
+except ValueError:
+    print("N must be a number")
+    sys.exit(1)
 
-    @property
-    def height(self):
-        return self.__height
+if nxn < 4:
+    print("N must be at least 4")
+    sys.exit(1)
 
-    @height.setter
-    def height(self, value):
-        if not isinstance(value, int):
-            raise TypeError('height must be an integer')
-        elif value < 0:
-            raise ValueError('height must be >= 0')
-        else:
-            self.__height = value
-
-    '''
-    rectangle height setter
-    '''
-
-    def area(self):
-        return self.__width * self.__height
-
-    '''
-    Returns: the area of the rectangle
-    '''
-
-    def perimeter(self):
-        if self.__height == 0 or self.__width == 0:
-            return 0
-        else:
-            return (self.__width * 2) + (self.__height * 2)
-
-    '''
-    Returns: the perimeter of the rectangle
-    '''
-
-    def __str__(self):
-        """Prints the rectangle representing symbols"""
-        if self.width == 0 or self.height == 0:
-            return ""
-        rect_str = ""
-        for i in range(self.height):
-            for j in range(self.width):
-                rect_str += str(self.print_symbol)
-            if i != self.height - 1:
-                rect_str += "\n"
-        return rect_str
-
-    def __repr__(self):
-        """Returns the representation of the rectangle"""
-        return f"Rectangle({self.width}, {self.height})"
-
-    def __del__(self):
-        """Remaining instances after deletion"""
-        print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
-
-    @staticmethod
-    def bigger_or_equal(rect_1, rect_2):
-        """Static methods which returns the biggest rectangle from the two"""
-        if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect_1 must be an instance of Rectangle")
-        if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instance of Rectangle")
-        if rect_1.area() >= rect_2.area():
-            return rect_1
-        else:
-            return rect_2
-
-    @classmethod
-    def square(cls, size=0):
-        """Class method Square which takes the size of the rectangle
-         and returns the area of the square
-         Args:
-             size: the size of the square
-        Returns: the new rectangle called square
-         """
-        return Rectangle(size, size)
+n_queens(nxn)
