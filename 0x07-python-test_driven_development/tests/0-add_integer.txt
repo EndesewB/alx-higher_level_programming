@@ -1,15 +1,18 @@
 >>> add_integer = __import__('0-add_integer').add_integer
->>> add_integer(1, 1)
-2
-
-Adding one positive and one negative integer (a = 10 and b = -4)
->>> add_integer(10, -4)
-6
-
-Adding two negative integers (a = -10 and b = -4)
->>> add_integer(-10, -4)
--14
-
+>>> add_integer(1, 2)
+3
+>>> add_integer(10,2) 
+12
+>>> add_integer(10,-7)
+3
+>>> add_integer(-10,-7) 
+-17
+>>> add_integer(-10.4,-7.6) 
+-17
+>>> add_integer(-10.4,-0.6) 
+-10
+>>> add_integer(-10)  
+88
 passing only the first argument
 >>> print(add_integer(2))
 100
@@ -21,3 +24,7 @@ TypeError: b must be an integer
 Traceback (most recent call last):
           ...
 TypeError: a must be an integer
+>>> print(add_integer('s', 4))
+Traceback (most recent call last):                                                                
+          ...                                                       
+TypeError: a must be an integer  
