@@ -1,0 +1,17 @@
+testing matrix multiplication doc
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+>>> m = [[12, 23]]     
+>>> n = [[2, 3],[4, 3]]
+>>> matrix_mul(m, n)    
+[[116, 105]]
+multiplying square matrix
+>>> m = [[12, 23], [2, 3]]
+>>> n = m                  
+>>> matrix_mul(m, n)
+[[190, 345], [30, 55]]
+floating and integer check
+>>> m = [[12.3, 23.2], [2.0, 3.4]]
+>>> n = [[12, 23], [2, 3]]                               
+>>> matrix_mul(m, n)               
+[[194.00000000000003, 352.5], [30.8, 56.2]]
+
