@@ -2,6 +2,7 @@
 """module basegeometry"""
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+
 class BaseGeometry:
     """This is an empty class basegeometry"""
     def area(self):
@@ -20,6 +21,8 @@ class BaseGeometry:
             raise TypeError(f" {name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
+
+
 class Rectangle(BaseGeometry):
     def __init__(self, width=0, height=0):
         """
