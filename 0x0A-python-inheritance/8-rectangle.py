@@ -17,9 +17,9 @@ class BaseGeometry:
                ValueError: If the value is less or equal to 0.
         """
         if not isinstance(value, int):
-            raise TypeError(f" {name} must be an integer")
+            raise TypeError(f" {name} must be an integer".format(value))
         if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+            raise ValueError(f"{name} must be greater than 0".format(value))
 
 
 class Rectangle(BaseGeometry):
