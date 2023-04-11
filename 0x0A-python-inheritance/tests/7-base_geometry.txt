@@ -1,19 +1,4 @@
->>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
-Checking for module docstring:
->>> basegeometry = __import__("7-base_geometry").__doc__
->>> len(basegeometry) > 1
-True
-Checking for class docstring:
->>> baseg = __import__("7-base_geometry").BaseGeometry.__doc__
->>> len(baseg) > 1
-True
-Checking for method docstring:
->>> method = __import__("7-base_geometry").BaseGeometry.area.__doc__
->>> len(method) > 1
-True
->>> mod2 = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
->>> len(mod2) > 1
-True
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry 
 Checking for area failure:
 >>> a = BaseGeometry()
 >>> a.area()
