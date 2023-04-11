@@ -1,6 +1,5 @@
 #!/usr/bin/python
 """The method to change to json string"""
-
 import json
 
 
