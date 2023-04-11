@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """The method to change to json string"""
 import json
 
