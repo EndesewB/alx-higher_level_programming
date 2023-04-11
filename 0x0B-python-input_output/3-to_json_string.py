@@ -1,6 +1,7 @@
-#!/usr/bin/python3
-import json
+#!/usr/bin/python
 """The method to change to json string"""
+
+import json
 
 
 def to_json_string(my_obj):
