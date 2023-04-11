@@ -9,6 +9,6 @@ class MyInt(int):
         """Override == opeartor with != behavior"""
         return not super().__eq__(value)
 
-    def __ne__(self, other):
+    def __ne__(self, value):
         """Override != operator with == behavior"""
         return super().__eq__(value)
