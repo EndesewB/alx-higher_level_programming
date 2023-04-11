@@ -1,6 +1,6 @@
->>> BaseGeometry = __import__("7-base_geometry").BaseGeometry 
+>>> BG = __import__("7-base_geometry").BaseGeometry 
 Checking for area failure:
->>> a = BaseGeometry()
+>>> a = BG()
 >>> a.area()
 Traceback (most recent call last):
   ...
