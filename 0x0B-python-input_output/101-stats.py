@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """The module that reads stdin line by line and computes metrics"""
+import sys
 
 
 def print_stats(size, status_codes):
@@ -11,7 +12,6 @@ def print_stats(size, status_codes):
 
 
 if __name__ == "__main__":
-    import sys
 
     size = 0
     status_codes = {}
