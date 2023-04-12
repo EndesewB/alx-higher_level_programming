@@ -3,7 +3,7 @@
 
 
 def pascal_triangle(n):
-    """the function that returns the pascal triangle according to the formula"""
+    """function that returns the pascal triangle according to the formula"""
     if n <= 0:
         """if the dimension of triangle 0, returns empty list"""
         return []
