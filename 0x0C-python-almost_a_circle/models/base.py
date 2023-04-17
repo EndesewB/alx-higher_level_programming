@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This is the base class module"""
 import json
-from models.rectangle import Rectangle
 
 
 class Base:
