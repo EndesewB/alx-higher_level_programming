@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-
-
 """Rectangle module attribute inherited from Base"""
 from models.base import Base
 
