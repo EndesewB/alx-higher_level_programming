@@ -62,12 +62,14 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """Returns the area of the rectangle"""
         return self.width * self.height
 
     def display(self):
+        """prints the rectangle representation"""
         for i in range(self.height):
             print("#" * self.width)
 
     def __str__(self):
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} \
-                - {self.width}/{self.height}"
+        """string representation of the rectangle dict"""
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
