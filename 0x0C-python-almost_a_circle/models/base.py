@@ -32,6 +32,14 @@ class Base:
             if list_objs is None:
                 file.write("[]")
             else:
-                js_str = cls.to_json_string([ob.to_dictionary()
-                                             for ob in list_objs])
-                file.write(js_str)
+                json_string = cls.to_json_string([ob.to_dictionary()
+                                                  for ob in list_objs])
+                file.write(json_string)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns json strings from dictonary"""
+        if not json_string:
+            return []
+        else:
+            return json.loads(json_string)
