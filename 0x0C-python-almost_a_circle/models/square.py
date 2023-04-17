@@ -48,25 +48,27 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """using args and kwargs to update arguments"""
-        if args:
-            self.id = args[0]
-        elif len(args) > 1:
-            self.width = args[1]
-        elif len(args) > 2:
-            self.height = args[2]
-        elif len(args) > 3:
-            self.x = args[3]
-        elif len(args) > 4:
-            self.y = args[4]
+        if len(args) != 0:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) > 1:
+                self.size = args[1]
+            if len(args) > 2:
+                self.x = args[2]
+            if len(args) > 3:
+                self.y = args[3]
         else:
             for key, value in kwargs.items():
                 if key == 'id':
                     self.id = value
-                elif key == 'width':
-                    self.width = value
-                elif key == 'height':
-                    self.height = value
-                elif key == 'x':
+                if key == 'size':
+                    self.size = value
+                if key == 'x':
                     self.x = value
-                elif key == 'y':
+                if key == 'y':
                     self.y = value
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Square"""
+        dic_ob = {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+        return dic_ob
