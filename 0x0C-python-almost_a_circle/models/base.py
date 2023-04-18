@@ -78,7 +78,8 @@ class Base:
                                 quotechar='"', quoting=csv.QUOTE_MINIMAL)
             for obj in list_objs:
                 if isinstance(obj, Rectangle):
-                    writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                    writer.writerow([obj.id, obj.width,
+                                     obj.height, obj.x, obj.y])
                 elif isinstance(obj, Square):
                     writer.writerow([obj.id, obj.size, obj.x, obj.y])
 
@@ -94,8 +95,9 @@ class Base:
                         obj = Rectangle(int(row[1]), int(row[2]), int(row[3]),
                                         int(row[4]), int(row[0]))
                     elif cls.__name__ == "Square":
-                        obj = Square(int(row[1]), int(row[2]), int(row[3]), int(row[0]))
+                        obj = Square(int(row[1]), int(row[2]), int(row[3]),
+                                     int(row[0]))
                     objs.append(obj)
                 return objs
-        except:
+        except IOError:
             return []
