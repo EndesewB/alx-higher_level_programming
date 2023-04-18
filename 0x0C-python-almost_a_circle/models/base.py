@@ -72,35 +72,30 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """Serialize a list of objects to a CSV file"""
-        if list_objs is None or len(list_objs) == 0:
-            with open(cls.__name__ + '.csv', 'w') as file:
-                return file.write("[]")
-        else:
-            with open(cls.__name__ + '.csv', 'w', newline='') as file:
-                writer = csv.writer(file)
-                for obj in list_objs:
-                    if isinstance(obj, Rectangle):
-                        row = [obj.id, obj.width, obj.height, obj.x, obj.y]
-                    elif isinstance(obj, Square):
-                        row = [obj.id, obj.size, obj.x, obj.y]
-                    writer.writerow(row)
+        filename = "{}.csv".format(cls.__name__)
+        with open(filename, mode='w', newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',',
+                                quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            for obj in list_objs:
+                if isinstance(obj, Rectangle):
+                    writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                elif isinstance(obj, Square):
+                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
 
     @classmethod
     def load_from_file_csv(cls):
-        """Deserialize a list of objects from a CSV file"""
-        obj_list = []
+        filename = "{}.csv".format(cls.__name__)
         try:
-            with open(cls.__name__ + '.csv', 'r', newline='') as file:
-                reader = csv.reader(file)
+            with open(filename, mode='r', newline='') as csvfile:
+                reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+                objs = []
                 for row in reader:
-                    if cls.__name__ == 'Rectangle':
-                        obj = Rectangle(int(row[1]), int(row[2]),
-                                        int(row[3]), int(row[4]), int(row[0]))
-                    elif cls.__name__ == 'Square':
-                        obj = Square(int(row[1]), int(row[2]),
-                                     int(row[3]), int(row[0]))
-                    obj_list.append(obj)
-        except FileNotFoundError:
+                    if cls.__name__ == "Rectangle":
+                        obj = Rectangle(int(row[1]), int(row[2]), int(row[3]),
+                                        int(row[4]), int(row[0]))
+                    elif cls.__name__ == "Square":
+                        obj = Square(int(row[1]), int(row[2]), int(row[3]), int(row[0]))
+                    objs.append(obj)
+                return objs
+        except:
             return []
-        return obj_list
