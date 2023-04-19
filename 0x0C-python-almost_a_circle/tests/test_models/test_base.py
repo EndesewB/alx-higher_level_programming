@@ -1,9 +1,9 @@
-#!/usr/bin/python3
 import unittest
 from models.base import Base
 from models.square import Square
 import json
 import inspect
+from models.rectangle import Rectangle
 
 '''
     Creating test cases for the base module
