@@ -2,8 +2,15 @@
 
 const args = process.argv.slice(2);
 
-if (args.slice === 0) {
+if (args.length === 0) {
   console.log('No argument');
 } else {
-  console.log(args.join(' '));
+  let countArgs = '';
+  for (let i = 0; i < args.length; i++) {
+    countArgs += args[i];
+    if (i !== args.length - 1) {
+      countArgs += ' ';
+    }
+  }
+  console.log(countArgs);
 }
