@@ -3,7 +3,8 @@
 class Rectangle {
   constructor (w, h) {
     if (w <= 0 || h <= 0 || Number.isNaN(parseInt(w)) || Number.isNaN(parseInt(h))) {
-      return {};
+	this.width = undefined;
+        this.height = undefined;
     }
 
     this.width = w;
