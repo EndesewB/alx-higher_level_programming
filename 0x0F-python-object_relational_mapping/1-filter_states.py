@@ -12,6 +12,7 @@ from sys import argv
 Access to the database and get the states
 from the database.
 """
+if __name__ == '__main__':
 
     db_connect = db.connect(host="localhost", port=3306,
                             user=argv[1], passwd=argv[2], db=argv[3])
@@ -25,5 +26,3 @@ from the database.
 
     for row in rows_selected:
         print(row)
-
-if __name__ == '__main__':
